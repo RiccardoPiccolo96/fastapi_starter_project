@@ -13,7 +13,6 @@ async def lifespan(app: FastAPI):
     # Startup
     logger.info(f"Application starting in {settings.ENV} mode")
     logger.info(f"DEBUG: {settings.DEBUG}")
-    # Inizializzazione e salvataggio nello stato dell'app
     logger.info("Inizialize Database")
     db_manager = DatabaseSessionManager(settings.database_url)
     app.state.db_manager = db_manager

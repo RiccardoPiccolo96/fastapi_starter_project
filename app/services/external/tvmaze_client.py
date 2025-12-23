@@ -7,7 +7,6 @@ from app.core.config import settings
 
 class TVMazeClient(BaseExternalClient):
     def __init__(self):
-        # API gratuita, in inglese, senza API Key
         super().__init__(base_url=settings.SERIES_TV_URL)
 
     async def search_shows(self, query: str) -> List[TVShowResponse]:
@@ -28,5 +27,4 @@ class TVMazeClient(BaseExternalClient):
         raw_data = await self.get(endpoint=f"/shows/{show_id}")
         return TVShowResponse.model_validate(raw_data)
 
-# Istanza pronta per l'uso
 tv_client = TVMazeClient()

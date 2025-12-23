@@ -6,7 +6,7 @@ class HealthResponse(BaseModel):
     version: str
     environment: str
     uptime_seconds: float
-    # Aggiungi qui i check dei servizi
+    # Add other service checks
     database: str = "up"
     
     @field_validator("uptime_seconds")
